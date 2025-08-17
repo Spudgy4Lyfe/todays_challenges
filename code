@@ -1,0 +1,74 @@
+# challenge 1
+# count how many times number 4 appears in the string of numbers
+
+string_of_numbers = "283479131515574857242454150695950829533116861727855889075098381754637464939319255060400927701671139009848824012858361603563707660104710181942955596198946767837449448255379774726847104047534646208046684259069491293313677028989152104752162056966024058038150193511253382430035587640247496473263914199272604269922796"
+
+count = 0
+for letter in string:
+    if letter == "4":
+        count += 1
+
+# challenge 2
+# write a function which takes array of numbers/list as input
+# and returns the second lowest and second greatest number respectively separated by a space
+# eg [7,7,12,98,100] = 12 98
+
+def find_second_best(list):
+    list_unique = sorted(set(list)) #Set items are unordered, unchangeable, and do not allow duplicate values.
+
+    return str(list_unique[1]) + " " + str(list_unique[-2])
+
+print(find_second_best([7,7,12,98,100]))
+
+# challenge 3
+# write a function which takes a string as input and checks if characters "a" and "b" are exactly 3 spaces apart
+# ex "cart ball" == True and "cart asshole" == False
+
+def a_3spaces_b(str):
+
+    for i in range(1, len(str)):
+        if str[i] == "a" and str[i+4] == "b":
+            return True
+
+    return False
+
+print(a_3spaces_b("cart ball"))
+
+# challenge 4
+# have the function mathchallenge(str) count how many times a digit appears
+# that is exactly one less than the previous digit eg 5658676 == 2 because 65 and 76
+
+def mathchallenge(str):
+
+    count = 0
+    for i in range(1, len(str)):
+        if int(str[i-1]) - int(str[i]) == 1:
+            count += 1
+    return count
+
+print(mathchallenge("5658676"))
+
+# challenge 5
+# Write a function which takes string as an input and counts unique characters in the string
+# and returns True if there are 10 or more characters eg "aaabcdef12-m" = true "aaabbbbccccc" = False
+
+def  ten_or_more(str):
+
+    list_of_characters = []
+    for i in str:
+        list_of_characters.append(i)
+
+    unique_list = set(list_of_characters)
+    count = 0
+    for i in unique_list:
+        count += 1
+    if count >= 10:
+        return True
+    else:
+        return False
+
+print(ten_or_more("aaabbbbccccc"))
+
+
+
+
